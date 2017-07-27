@@ -44,9 +44,11 @@
     app.controller('customersCtrl', function ($scope, $http)
     {
         $http.get("https://octopusvape.herokuapp.com/api/compet1")
-             .then(function (response) {$scope.users = response;});
+             .then(function (response) {$scope.users = response.data;});
     });
 </script>
 
 </body>
 </html>
+
+
