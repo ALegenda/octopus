@@ -2,7 +2,9 @@
 <html>
 <style>
 
-
+    body {
+        background-image: url("octopus.jpg");
+    }
     table {
         color: #333; /* Lighten up font color */
         font-family: Helvetica, Arial, sans-serif; /* Nicer font */
@@ -38,9 +40,13 @@
 <div ng-app="myApp" ng-controller="customersCtrl">
 
     <table>
+        <tr>
+            <th>Имя</th>
+            <th>Результат</th>
+        </tr>
         <tr ng-repeat="x in users | orderBy : 'Result'">
-            <td>Имя : {{ x.Name }}</td>
-            <td>Результат : {{ x.Result }}</td>
+            <td>{{ x.Name }}</td>
+            <td>{{ x.Result }}</td>
         </tr>
     </table>
 
