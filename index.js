@@ -52,10 +52,28 @@ app.get(
 );
 
 app.get(
+    '/admin',
+    function (request, response)
+    {
+        response.render("admin.html");
+    }
+);
+
+app.get(
     '/kek',
     function (request, response)
     {
         response.send("kek");
+    }
+);
+
+app.get(
+    '/addresult',
+    function (request, response)
+    {
+        var params = request.query;
+
+        response.send(params['password']);
     }
 );
 
