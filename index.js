@@ -44,6 +44,14 @@ app.get(
 );
 
 app.get(
+    '/compet1',
+    function (request, response)
+    {
+        response.render("compet1.html");
+    }
+);
+
+app.get(
     '/kek',
     function (request, response)
     {
