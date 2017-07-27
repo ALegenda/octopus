@@ -72,8 +72,15 @@ app.get(
     function (request, response)
     {
         var params = request.query;
+        if(params['password'] != "octopus8")
+            response.send("Неправильный пароль");
+        else
+        {
+            var collection = db.collection(params['compet']);
+            collection.insertOne({"Name":params['name'], "Phone" : params['phone'], "Result" : parseInt(params['result'])});
+            response.send("Запись добавлена");
+        }
 
-        response.send(params['password']);
     }
 );
 
