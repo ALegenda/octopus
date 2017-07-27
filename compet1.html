@@ -34,9 +34,11 @@
 <div ng-app="myApp" ng-controller="customersCtrl">
 
     <table>
-            <td>Name : {{ x.name }}</td>
-            <td>Phone : {{ x.phone}}</td>
-            <td>Result : {{x.result}}</td>
+        <tr ng-repeat="x in result">
+            <td>Name : {{ x.Name }}</td>
+            <td>Phone : {{ x.Phone}}</td>
+            <td>Result : {{x.Result}}</td>
+        </tr>
     </table>
 
 </div>
