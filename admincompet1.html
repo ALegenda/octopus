@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<style>
+
+    body {
+        background-image: url("octopus.jpg");
+    }
+    table {
+        color: #333; /* Lighten up font color */
+        font-family: Helvetica, Arial, sans-serif; /* Nicer font */
+        width: 640px;
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+
+    td, th {
+        border: 1px solid #CCC;
+        height: 30px;
+    }
+
+    /* Make cells a bit taller */
+
+
+    td {
+        background: #FAFAFA; /* Lighter grey background */
+        text-align: center; /* Center our text */
+    }
+</style>
+<head>
+    <title>Пускание колец</title>
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="customersCtrl">
+
+    <table>
+        <tr>
+            <th>Имя</th>
+            <th>Телефон</th>
+            <th>Результат</th>
+        </tr>
+        <tr ng-repeat="x in users | orderBy : '-Result'">
+            <td>{{ x.Name }}</td>
+            <td>{{ x.Phone }}</td>
+            <td>{{ x.Result }}</td>
+        </tr>
+    </table>
+
+</div>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('customersCtrl', function ($scope, $http)
+    {
+        $http.get("https://octopusvape.herokuapp.com/api/compet1")
+             .then(function (response) {$scope.users = response.data;});
+    });
+</script>
+
+</body>
+</html>
+
+

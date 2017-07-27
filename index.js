@@ -5,7 +5,6 @@ var get = require('simple-get');
 var url = "mongodb://TomKuper:dbpassword1234@ds123933.mlab.com:23933/heroku_51tvcl2l";
 var mongodb = require("mongodb");
 var db;
-var ObjectID = require('mongodb').ObjectID;
 
 app.set('port', (process.env.PORT || 5000));
 app.set('views', __dirname);
@@ -83,6 +82,25 @@ app.get(
 
     }
 );
+
+
+app.get(
+    '/showresults',
+    function (request, response)
+    {
+        var params = request.query;
+        if(params['password'] !== "octopus8")
+            response.send("Неправильный пароль");
+        else
+        {
+            var collection = db.collection(params['compet']);
+            response.render("admincompet1.html");
+        }
+
+    }
+);
+
+
 
 app.get(
     '/octopus.jpg',
