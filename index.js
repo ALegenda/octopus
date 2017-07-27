@@ -60,6 +60,14 @@ app.get(
 );
 
 app.get(
+    '/octopus.jpg',
+    function (request, response)
+    {
+        response.sendFile(path.join(__dirname, 'octopus.jpg'));
+    }
+);
+
+app.get(
     '/api/:compet',
     function (request, response)
     {
