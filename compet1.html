@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<style>
+
+
+    table {
+        color: #333; /* Lighten up font color */
+        font-family: Helvetica, Arial, sans-serif; /* Nicer font */
+        width: 640px;
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+
+    td, th {
+        border: 1px solid #CCC;
+        height: 30px;
+    }
+
+    /* Make cells a bit taller */
+
+    th {
+        background: #F3F3F3; /* Light grey background */
+        font-weight: bold; /* Make sure they're bold */
+    }
+
+    td {
+        background: #FAFAFA; /* Lighter grey background */
+        text-align: center; /* Center our text */
+    }
+</style>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="customersCtrl">
+
+    <table>
+            <td>Name : {{ x.name }}</td>
+            <td>Phone : {{ x.phone}}</td>
+            <td>Result : {{x.result}}</td>
+    </table>
+
+</div>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('customersCtrl', function ($scope, $http)
+    {
+        $http.get("https://octopusvape.herokuapp.com/api/compet1")
+             .then(function (response) {$scope.result = response;});
+    });
+</script>
+
+</body>
+</html>
