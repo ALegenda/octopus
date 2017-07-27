@@ -44,7 +44,7 @@
             <th>Имя</th>
             <th>Результат</th>
         </tr>
-        <tr ng-repeat="x in users | orderBy : 'Result'">
+        <tr ng-repeat="x in users | orderBy : '-Result'">
             <td>{{ x.Name }}</td>
             <td>{{ x.Result }}</td>
         </tr>
