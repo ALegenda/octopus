@@ -101,6 +101,23 @@ app.get(
 );
 
 
+app.get(
+    '/deleteresults',
+    function (request, response)
+    {
+        var params = request.query;
+        if(params['password'] !== "octopus8")
+            response.send("Неправильный пароль");
+        else
+        {
+            var collection = db.collection(params['compet']);
+            collection.drop();
+            response.send("Записи удалены");
+        }
+
+    }
+);
+
 
 app.get(
     '/octopus.jpg',
