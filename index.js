@@ -63,7 +63,7 @@ app.get(
     '/octopus.jpg',
     function (request, response)
     {
-        response.sendFile(path.join(__dirname, 'octopus.jpg'));
+        response.sendFile('octopus.jpg' , { root : __dirname});
     }
 );
 

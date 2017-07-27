@@ -18,10 +18,6 @@
 
     /* Make cells a bit taller */
 
-    th {
-        background: #F3F3F3; /* Light grey background */
-        font-weight: bold; /* Make sure they're bold */
-    }
 
     td {
         background: #FAFAFA; /* Lighter grey background */
@@ -34,7 +30,7 @@
 <div ng-app="myApp" ng-controller="customersCtrl">
 
     <table>
-        <tr ng-repeat="x in result">
+        <tr ng-repeat="x in users | orderBy : 'Result'">
             <td>Name : {{ x.Name }}</td>
             <td>Phone : {{ x.Phone }}</td>
             <td>Result : {{ x.Result }}</td>
@@ -48,7 +44,7 @@
     app.controller('customersCtrl', function ($scope, $http)
     {
         $http.get("https://octopusvape.herokuapp.com/api/compet1")
-             .then(function (response) {$scope.result = response;});
+             .then(function (response) {$scope.users = response;});
     });
 </script>
 
