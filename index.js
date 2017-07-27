@@ -112,7 +112,7 @@ app.get(
         {
             var collection = db.collection(params['compet']);
             collection.drop();
-            response.send("Записи удалены");
+            response.send("Удалено");
         }
 
     }
