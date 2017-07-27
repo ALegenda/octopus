@@ -63,7 +63,7 @@ app.get(
     '/api/:compet',
     function (request, response)
     {
-        var token = request.params.compet;
+        var compet = request.params.compet;
         var collection = db.collection(compet);
         collection.find({}).toArray(
             function (err, results)
